@@ -24,56 +24,18 @@
         </nav>
 
         <main>
-            <ul>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-                <li>Produkt 1</li>
-                <li>Produkt 2</li>
-                <li>Produkt 3</li>
-                <li>Produkt 4</li>
-                <li>Produkt 5</li>
-                <li>Produkt 6</li>
-            </ul>
+            <div>
+                <table>
+                    <tr>
+                        <td><span>Knoppers</span></td>
+                        <td><span>22 g</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>1, 50€</span></td>
+                    </tr>
+                    <tr>Bild</tr>
+                </table>
+            </div>
         </main>
 
     </div>
@@ -87,26 +49,20 @@
     <script>
         $(document).ready(function()
         {
-           
-            $("#button").click(function()
-            {
-
-                var colorR = Math.floor((Math.random() * 256));
-                var colorG = Math.floor((Math.random() * 256));
-                var colorB = Math.floor((Math.random() * 256));
-                $("body").css("background-color", "rgb(" + colorR + "," + colorG + "," + colorB + ")");
-               
+           var product_id = 1;
+            $.ajax({
+                url: "/product/id/" +product_id,
+                type: "GET",
+                success: function(data){
+                    if(data.length > 0)
+                    {
+                        console.log(data[0]);
+                    }
+                },
+                error: function(xhr){
+                    console.log("Es ist ein Fehler aufgetreten :(");
+                }
             });
-
-            var myInterval = window.setInterval(incremento, 500);
-
-            var counter = 0;
-
-            function incremento()
-            {
-                counter ++;
-                $("#clock").text(counter);
-            }
 
 
         });
