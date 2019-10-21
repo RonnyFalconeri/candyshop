@@ -47,8 +47,8 @@ app.listen(app.get("port"), function(){
 // --------------------------------- Requests -------------------------------
 
 // return kunde with given id -> get request
-app.get("/kunde/id/:id", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM kunde WHERE id=?", [req.params.id], (err, rows, fields) =>{
+app.get("/product/id/:id", (req, res) =>{
+    mysqlConnection.query("SELECT * FROM products WHERE id=?", [req.params.id], (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
