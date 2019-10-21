@@ -49,20 +49,23 @@
     <script>
         $(document).ready(function()
         {
-           var product_id = 1;
+
             $.ajax({
-                url: "/product/id/" +product_id,
+                url: "/product",
                 type: "GET",
                 success: function(data){
                     if(data.length > 0)
                     {
-                        console.log(data[0]);
+                        data.forEach(element => {
+                            console.log(data[element]); 
+                        });
                     }
                 },
                 error: function(xhr){
                     console.log("Es ist ein Fehler aufgetreten :(");
                 }
             });
+
 
 
         });
