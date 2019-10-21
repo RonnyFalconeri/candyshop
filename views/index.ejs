@@ -1,0 +1,33 @@
+<% include header %>
+
+<header>
+    <h1 id="maintitle">CandyShop</h1>
+    <h2 id="undertitle">The Online Shop</h2>
+</header>
+
+<div class="wrapper">
+
+    <nav>
+        <input id="searchbar" class="form-control" type="text" placeholder="search product" style="width: 100%;">
+    </nav>
+
+    <main>
+        <div id="product_list">
+
+            <% include product_template %>
+            <% include product_template %>
+            <% include product_template %>
+            <% include product_template %>
+            <% include product_template %>
+            <% include product_template %>
+
+        </div>
+    </main>
+
+</div>
+
+
+
+
+<% include logic %>
+<% include footer %>
