@@ -5,6 +5,11 @@ html {
 body {
     margin: 0;
     height: 100%;
+    background-image: url("../images/wallpaper.jpg");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header {
@@ -46,6 +51,6 @@ main {
 table {
     text-align: center;
     height: 210px;
-    background-color: lightgray;
+    background-color: rgba(192, 192, 192, 0.75);
     margin: 20px 0 20px 0;
 }
