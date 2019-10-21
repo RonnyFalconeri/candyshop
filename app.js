@@ -46,11 +46,20 @@ app.listen(app.get("port"), function(){
 
 // --------------------------------- Requests -------------------------------
 
-// Beispiel einer request
-// return kunde with given id
+// return kunde with given id -> get request
 app.get("/kunde/id/:id", (req, res) =>{
     mysqlConnection.query("SELECT * FROM kunde WHERE id=?", [req.params.id], (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
+    });
+});
+
+// update kunde -> post request
+app.post("/updateadresse", (req, res) =>{
+    mysqlConnection.query("UPDATE adresse SET nameort=?, plz=?, straße=?, hausnr=?, hausnrzusatz=?, mfg_id=?, kvz_dtag_id=? WHERE id=?", 
+    [req.body.Stuff.nameort, req.body.Stuff.plz, req.body.Stuff.straße, req.body.Stuff.hausnr, req.body.Stuff.hausnrzusatz, req.body.Stuff.mfg_id, req.body.Stuff.kvz_id, req.body.Stuff.id], (err, rows) =>{
+        if (err) throw err;
+        res.send(rows);
+        
     });
 });
