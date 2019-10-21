@@ -1,0 +1,31 @@
+<script>
+    $(document).ready(function()
+    {
+
+        $.ajax({
+            url: "/product",
+            type: "GET",
+            success: function(data){
+                if(data.length > 0)
+                {
+                    data.forEach(element => {
+                        console.log(element); 
+                        // $('#theDiv').prepend('<img id="theImg" src="theImg.png" />')
+                    });
+                }
+            },
+            error: function(xhr){
+                console.log("Es ist ein Fehler aufgetreten :(");
+            }
+        });
+
+        $("#warenkorb_button").click(function(){
+            console.log("pressed.");
+        });
+
+
+
+
+    });
+
+</script>
