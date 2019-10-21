@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: red;
+    background-color: #c82020;
     width: 100%;
     text-align: center;
     color: white;
@@ -27,15 +27,18 @@ main {
 
 #maintitle {
     margin: 0;
+    text-align: center;
+    font-size: 60px;
+    height: 80px;
 }
 
 #undertitle {
     margin: 0;
-    background-color: blue;
+    background-color: #0c0cd6;
 }
 
 .wrapper {
     margin-left: 20%;
     margin-right: 20%;
-    padding-top: 102px;
+    padding-top: 115px;
 }
