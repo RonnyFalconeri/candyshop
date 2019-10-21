@@ -42,3 +42,9 @@ main {
     margin-right: 20%;
     padding-top: 115px;
 }
+
+table {
+    text-align: center;
+    height: 210px;
+    background-color: lightgray;
+}

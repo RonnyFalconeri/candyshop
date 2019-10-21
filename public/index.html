@@ -24,17 +24,44 @@
         </nav>
 
         <main>
-            <div>
-                <table>
+            <div id="product_list">
+                <table style="border-radius: 20px;">
                     <tr>
-                        <td><span>Knoppers</span></td>
-                        <td><span>22 g</span></td>
-                    </tr>
-                    <tr>
-                        <td><span>1, 50€</span></td>
-                    </tr>
-                    <tr>Bild</tr>
+                        <td rowspan="3">
+                            <span id="product_pic"><img src="images/knoppers.jpg" style="border: 1px solid black;"></span>
+                        </td>
+                        
+                        <td style="width: 50%;">
+                            <tr>
+                                <td style="width: 50%;"><span id="product_name">Knoppers</span></td>
+                                <td style="width: 50%;"><span id="product_weight">22 g</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span id="product_price">1, 50€</span></td>
+                            </tr>
+                        </td> 
+                    </tr> 
                 </table>
+
+                <table style="border-radius: 20px;">
+                    <tr>
+                        <td rowspan="3">
+                            <span id="product_pic"><img src="images/mars.jpg" style="border: 1px solid black;"></span>
+                        </td>
+                        
+                        <td style="width: 50%;">
+                            <tr>
+                                <td style="width: 50%;"><span id="product_name">Knoppers</span></td>
+                                <td style="width: 50%;"><span id="product_weight">22 g</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span id="product_price">1, 50€</span></td>
+                            </tr>
+                        </td> 
+                    </tr> 
+                </table>
+
+
             </div>
         </main>
 
@@ -58,6 +85,8 @@
                     {
                         data.forEach(element => {
                             console.log(data[element]); 
+
+                            // $('#theDiv').prepend('<img id="theImg" src="theImg.png" />')
                         });
                     }
                 },
