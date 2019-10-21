@@ -12,7 +12,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
 
-var db = false;
+var db = true;
 
 if(db)
 {
@@ -20,7 +20,7 @@ if(db)
     var mysqlConnection = mysql.createConnection({
         host: "localhost",
         user: "root",
-        password: "admin",
+        password: "",
         database: "candyshop"
     });
 
@@ -47,8 +47,16 @@ app.listen(app.get("port"), function(){
 // --------------------------------- Requests -------------------------------
 
 // return kunde with given id -> get request
-app.get("/product/id/:id", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM products WHERE id=?", [req.params.id], (err, rows, fields) =>{
+app.get("/product/name/:name", (req, res) =>{
+    mysqlConnection.query("SELECT * FROM products WHERE name LIKE CONCAT(?,'%')", [req.params.name], (err, rows, fields) =>{
+        if (err) throw err;
+        res.send(rows);
+    });
+});
+
+// return kunde with given id -> get request
+app.get("/product", (req, res) =>{
+    mysqlConnection.query("SELECT * FROM products", (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
