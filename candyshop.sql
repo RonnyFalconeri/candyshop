@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 21. Okt 2019 um 13:13
+-- Erstellungszeit: 21. Okt 2019 um 15:10
 -- Server-Version: 10.1.33-MariaDB
 -- PHP-Version: 7.2.6
 
@@ -42,15 +42,15 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `price`, `weight`, `imagename`) VALUES
 (1, 'Duplo', 0.8, 18.2, 'duplo.jpg'),
-(3, 'Twix', 1.4, 46, 'twix.jpg'),
-(4, 'Kinderriegel', 0.6, 21, 'kinderriegel.jpg'),
-(5, 'Snickers', 1.8, 48, 'snickers.jpg'),
-(6, 'Mars', 1.4, 51, 'mars.jpg'),
-(7, 'Knoppers-Nussriegel', 1.3, 40, 'knoppers.jpg'),
-(8, 'Bounty', 1.2, 57, 'bounty.jpg'),
-(9, 'Hanuta', 0.9, 22, 'hanuta.jpg'),
-(10, 'Milky Way', 1.4, 43, 'milkyway.jpg'),
-(11, 'Pick Up', 1.2, 28, 'pickup.jpg');
+(2, 'Twix', 1.4, 46, 'twix.jpg'),
+(3, 'Kinderriegel', 0.6, 21, 'kinderriegel.jpg'),
+(4, 'Snickers', 1.8, 48, 'snickers.jpg'),
+(5, 'Mars', 1.4, 51, 'mars.jpg'),
+(6, 'Knoppers-Nussriegel', 1.3, 40, 'knoppers.jpg'),
+(7, 'Bounty', 1.2, 57, 'bounty.jpg'),
+(8, 'Hanuta', 0.9, 22, 'hanuta.jpg'),
+(9, 'Milky Way', 1.4, 43, 'milkyway.jpg'),
+(10, 'Pick Up', 1.2, 28, 'pickup.jpg');
 
 --
 -- Indizes der exportierten Tabellen
