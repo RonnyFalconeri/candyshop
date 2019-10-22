@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
 				sh 'echo "candyshop wird gebaut und gestartet"'
-				sh 'docker stop candyshopapp'
+				sh 'docker ps -q --filter "name=candyshopapp" | grep -q . && docker stop candyshopapp && docker rm -fv candyshopapp'
 				sh 'docker build -t candyshopapp:candyshopapp'
 				sh 'docker run -d -p 80:3000 candyshopapp'
             }
