@@ -18,7 +18,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
 
-var db = true;
+var db = false;
 
 if(db)
 {
