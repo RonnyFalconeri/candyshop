@@ -2,6 +2,29 @@
     $(document).ready(function()
     {
 
+        var t_name, t_picture, t_price, t_weight; 
+
+        var generated_table = `
+            <table style="border-radius: 20px;">
+                <tr>
+                    <td rowspan="3">
+                        <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
+                    </td>
+                    
+                    <td style="width: 50%;">
+                        <tr>
+                            <td style="width: 70%;"><span id="product_name" class="display-4">`+t_name+`</span></td>
+                            <td style="width: 30%;"><span id="product_price" class="font-weight-bolder" style="font-size: 40px;">`+t_price+` €</span></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
+                            <td style="width: 50%;"><input id="warenkorb_button" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                        </tr>
+                    </td> 
+                </tr> 
+            </table>
+        `;
+
         $.ajax({
             url: "/product",
             type: "GET",
@@ -10,7 +33,32 @@
                 {
                     data.forEach(element => {
                         console.log(element); 
-                        // $('#theDiv').prepend('<img id="theImg" src="theImg.png" />')
+                        t_name = element.name;
+                        t_picture = element.imagename;
+                        t_price = element.price;
+                        t_weight = element.weight;
+
+                        $("#product_list").append(`
+                            <table style="border-radius: 20px;">
+                                <tr>
+                                    <td rowspan="3">
+                                        <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
+                                    </td>
+                                    
+                                    <td style="width: 50%;">
+                                        <tr>
+                                            <td style="width: 70%;"><span id="product_name" class="display-4">`+t_name+`</span></td>
+                                            <td style="width: 30%;"><span id="product_price" class="font-weight-bolder" style="font-size: 40px;">`+t_price+` €</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
+                                            <td style="width: 50%;"><input id="warenkorb_button" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                        </tr>
+                                    </td> 
+                                </tr> 
+                            </table>
+                        `);
+
                     });
                 }
             },
@@ -22,6 +70,7 @@
         $("#warenkorb_button").click(function(){
             console.log("pressed.");
         });
+
 
 
 
