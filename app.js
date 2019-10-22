@@ -24,7 +24,7 @@ if(db)
 {
     // astablish connection variables of database
     var mysqlConnection = mysql.createConnection({
-        host: "3.121.229.187",
+        host: "localhost",
         port: 3306,
         user: "root",
         password: "",
