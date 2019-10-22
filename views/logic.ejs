@@ -14,6 +14,7 @@
                     var i = 0;
                     data.forEach(element => {
 
+
                         t_name = element.name;
                         t_picture = element.imagename;
                         t_price = element.price;
@@ -23,10 +24,10 @@
                         var candy = {};
 
                         candy[i] = {
-                            table_id = "table_"+i,
-                            name = t_name,
-                            price = t_price,
-                            weight = t_weight
+                            table_id: "table_"+i,
+                            name: t_name,
+                            price: t_price,
+                            weight: t_weight
                         }
 
                         available_products.push(candy[i]);
