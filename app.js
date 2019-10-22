@@ -31,7 +31,7 @@ if(db)
     // connect to database
     mysqlConnection.connect((err) => {
         if(!err){
-            console.log("     --- Connection to Database successfull! Yeey!");
+            console.log("     --- Connection to Database successfull! Yeey!!!");
         }else {
             console.log("     --- Connection to Database failed! AMK! Error:"+ JSON.stringify(err, undefined, 2));
         }
