@@ -7,7 +7,7 @@ var bodyparser = require("body-parser");
 var app = express();
 
 // initialisations
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 80);
 app.set("view engine", "ejs");
 app.get("/", function(req, res){
     res.render("index");
@@ -21,10 +21,10 @@ if(db)
 {
     // astablish connection variables of database
     var mysqlConnection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: "",
+        host: "127.0.0.1",
+        port: 80,
+        user: "candyshop",
+        password: "candyshop",
         database: "candyshopDB"
     });
 
