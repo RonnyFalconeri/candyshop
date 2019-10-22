@@ -76,7 +76,6 @@ app.get("/product", (req, res) =>{
     });
 });
 
-// return kunde with given id -> get request
 app.get("/articles", (req, res) =>{
     mysqlConnection.query("SELECT * FROM products", (err, rows, fields) =>{
         if (err) throw err;
