@@ -18,7 +18,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
 
-var db = false;
+var db = true;
 
 if(db)
 {
@@ -79,7 +79,10 @@ app.post("/updateadresse", (req, res) =>{
     });
 });
 
-// actricels
-app.get("/articels", (req, res) =>{
-    console.log(mysqlConnection.query("SELECT * FROM products ", [req.params.name], (err, rows, fields)));
+// return kunde with given id -> get request
+app.get("/articles", (req, res) =>{
+    mysqlConnection.query("SELECT * FROM products", (err, rows, fields) =>{
+        if (err) throw err;
+        res.send(rows);
+    });
 });
