@@ -36,11 +36,7 @@ if(db)
             console.log("Database: connection failed. Error: "+ JSON.stringify(err, undefined, 2));
         }
     });
-    
-}else {
-    console.log("Database is disabled.");
 }
-
 
 
 // start webserver -------------------------------
@@ -54,7 +50,7 @@ app.listen(app.get("port"), function(){
     console.log("                                      __/ |                          | |           ");
     console.log("                                     |___/                           |_|           ");
     console.log("                                                                                   ");
-    console.log("     --- Server started on port "+ app.get("port")+"! Have fun BRO!!");
+    console.log("     --- Server started on port "+ app.get("port")+"! HAVE FUN BRO!!");
 });
 
 
