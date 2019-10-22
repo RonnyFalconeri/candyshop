@@ -9,17 +9,14 @@ var app = express();
 // initialisations
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
-
 app.get("/", function(req, res){
     res.render("index");
 });
-
 app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
 
 var db = false;
-
 if(db)
 {
     // astablish connection variables of database
@@ -33,11 +30,13 @@ if(db)
 
     // connect to database
     mysqlConnection.connect((err) => {
-        if(!err)
+        if(!err){
             console.log("Database: connection successful!");
-        else
+        }else {
             console.log("Database: connection failed. Error: "+ JSON.stringify(err, undefined, 2));
+        }
     });
+    
 }else {
     console.log("Database is disabled.");
 }
@@ -45,8 +44,17 @@ if(db)
 
 
 // start webserver -------------------------------
-app.listen(app.get("port"), function(){
-    console.log("CandyShop | Server started on port "+ app.get("port"));
+app.listen(app.get("port"), function(){                                                                                             
+    console.log("     _____                       _            _____   _                            ");
+    console.log("    / ____|                     | |          / ____| | |                           ");
+    console.log("   | |        __ _   _ __     __| |  _   _  | (___   | |__     ___    _ __         ");
+    console.log("   | |       / _` | | '_ \\   / _` | | | | |  \\___ \\  | '_ \\   / _ \\  | '_ \\        ");
+    console.log("   | |____  | (_| | | | | | | (_| | | |_| |  ____) | | | | | | (_) | | |_) |       ");
+    console.log("    \\_____|  \\__,_| |_| |_|  \\__,_|  \\__, | |_____/  |_| |_|  \\___/  | .__/        ");
+    console.log("                                      __/ |                          | |           ");
+    console.log("                                     |___/                           |_|           ");
+    console.log("                                                                                   ");
+    console.log("     --- Server started on port "+ app.get("port")+"! Have fun BRO!!");
 });
 
 
