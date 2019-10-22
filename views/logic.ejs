@@ -12,6 +12,11 @@
             success: function(data){
                 if(data.length > 0)
                 {
+
+                    // clear the list
+                    available_products = [];
+                    $("#product_list").empty();
+
                     var i = 0;
                     var t_name, t_picture, t_price, t_weight;
 
@@ -69,11 +74,9 @@
             }
         });
 
-
         $("#warenkorb_button").click(function(){
             console.log("pressed.");
         });
-
 
         // if pressed 'enter' on searchbar
         $("#searchbar").keydown(function (e){
@@ -91,6 +94,11 @@
                         success: function(data){
                             if(data.length > 0)
                             {
+
+                                // clear the list
+                                available_products = [];
+                                $("#product_list").empty();
+
                                 var i = 0;
                                 var t_name, t_picture, t_price, t_weight;
 
@@ -221,8 +229,6 @@
 
             }
         });
-
-
 
     });
 
