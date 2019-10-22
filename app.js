@@ -27,7 +27,7 @@ if(db)
         host: "localhost",
         user: "root",
         password: "",
-        database: "candyshop"
+        database: "candyshopDB"
     });
 
     // connect to database
