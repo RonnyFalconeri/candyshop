@@ -13,6 +13,7 @@ app.set("view engine", "ejs");
 app.get("/", function(req, res){
     res.render("index");
 });
+
 app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
@@ -39,6 +40,7 @@ if(db)
 }else {
     console.log("Database is disabled.");
 }
+
 
 
 // start webserver -------------------------------
@@ -75,4 +77,9 @@ app.post("/updateadresse", (req, res) =>{
         res.send(rows);
         
     });
+});
+
+// actricels
+app.get("/articels", (req, res) =>{
+    console.log(mysqlConnection.query("SELECT * FROM products ", [req.params.name], (err, rows, fields)));
 });
