@@ -13,16 +13,6 @@ app.set("view engine", "ejs");
 app.get("/", function(req, res){
     res.render("index");
 });
-
-/* directly send data
-app.get("/", function(req, res){
-    mysqlConnection.query("SELECT * FROM products", (err, rows, fields) =>{
-        if (err) throw err;
-        res.send(rows);
-        res.render("index", rows);
-    });
-});
-*/
 app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
