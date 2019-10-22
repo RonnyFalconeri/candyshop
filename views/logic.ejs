@@ -81,73 +81,144 @@
 
                 var name = $("#searchbar").val();
 
-                $.ajax({
-                    url: "/product/name/"+name,
-                    type: "GET",
-                    success: function(data){
-                        if(data.length > 0)
-                        {
+                if(name == "")
+                {
+                    // if search empty list all products
 
-                            // clear the list
-                            available_products = [];
-                            $("#product_list").empty();
+                    $.ajax({
+                        url: "/product",
+                        type: "GET",
+                        success: function(data){
+                            if(data.length > 0)
+                            {
+                                var i = 0;
+                                var t_name, t_picture, t_price, t_weight;
 
-                            var i = 0;
-                            var t_name, t_picture, t_price, t_weight;
-
-                            data.forEach(element => {
-                                // for every product ...
-
-
-                                t_name = element.name;
-                                t_picture = element.imagename;
-                                t_price = element.price;
-                                t_weight = element.weight;
+                                data.forEach(element => {
+                                    // for every product ...
 
 
-                                //create object to store in available_products
-                                var candy = {};
-
-                                candy[i] = {
-                                    table_id: "table_"+i,
-                                    name: t_name,
-                                    price: t_price,
-                                    weight: t_weight
-                                }
-
-                                available_products.push(candy[i]);
+                                    t_name = element.name;
+                                    t_picture = element.imagename;
+                                    t_price = element.price;
+                                    t_weight = element.weight;
 
 
-                                // generate table/list of one product
-                                $("#product_list").append(`
-                                    <table id="table_`+i+`" style="border-radius: 20px;">
-                                        <tr>
-                                            <td rowspan="3">
-                                                <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
-                                            </td>
-                                            
-                                            <td style="width: 50%;">
-                                                <tr>
-                                                    <td style="width: 70%;"><span id="product_name" class="display-4">`+t_name+`</span></td>
-                                                    <td style="width: 30%;"><span id="product_price" class="font-weight-bolder" style="font-size: 40px;">`+t_price+` €</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
-                                                    <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
-                                                </tr>
-                                            </td> 
-                                        </tr> 
-                                    </table>
-                                `);
+                                    //create object to store in available_products
+                                    var candy = {};
 
-                                i++;
-                            });
+                                    candy[i] = {
+                                        table_id: "table_"+i,
+                                        name: t_name,
+                                        price: t_price,
+                                        weight: t_weight
+                                    }
+
+                                    available_products.push(candy[i]);
+
+
+                                    // generate table/list of one product
+                                    $("#product_list").append(`
+                                        <table id="table_`+i+`" style="border-radius: 20px;">
+                                            <tr>
+                                                <td rowspan="3">
+                                                    <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
+                                                </td>
+                                                
+                                                <td style="width: 50%;">
+                                                    <tr>
+                                                        <td style="width: 70%;"><span id="product_name" class="display-4">`+t_name+`</span></td>
+                                                        <td style="width: 30%;"><span id="product_price" class="font-weight-bolder" style="font-size: 40px;">`+t_price+` €</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
+                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                                    </tr>
+                                                </td> 
+                                            </tr> 
+                                        </table>
+                                    `);
+
+                                    i++;
+                                });
+                            }
+                        },
+                        error: function(xhr){
+                            console.log("Es ist ein Fehler aufgetreten :(");
                         }
-                    },
-                    error: function(xhr){
-                        console.log("Es ist ein Fehler aufgetreten :(");
-                    }
-                });
+                    });
+
+                }else{
+
+                    $.ajax({
+                        url: "/product/name/"+name,
+                        type: "GET",
+                        success: function(data){
+                            if(data.length > 0)
+                            {
+
+                                // clear the list
+                                available_products = [];
+                                $("#product_list").empty();
+
+                                var i = 0;
+                                var t_name, t_picture, t_price, t_weight;
+
+                                data.forEach(element => {
+                                    // for every product ...
+
+
+                                    t_name = element.name;
+                                    t_picture = element.imagename;
+                                    t_price = element.price;
+                                    t_weight = element.weight;
+
+
+                                    //create object to store in available_products
+                                    var candy = {};
+
+                                    candy[i] = {
+                                        table_id: "table_"+i,
+                                        name: t_name,
+                                        price: t_price,
+                                        weight: t_weight
+                                    }
+
+                                    available_products.push(candy[i]);
+
+
+                                    // generate table/list of one product
+                                    $("#product_list").append(`
+                                        <table id="table_`+i+`" style="border-radius: 20px;">
+                                            <tr>
+                                                <td rowspan="3">
+                                                    <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
+                                                </td>
+                                                
+                                                <td style="width: 50%;">
+                                                    <tr>
+                                                        <td style="width: 70%;"><span id="product_name" class="display-4">`+t_name+`</span></td>
+                                                        <td style="width: 30%;"><span id="product_price" class="font-weight-bolder" style="font-size: 40px;">`+t_price+` €</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
+                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                                    </tr>
+                                                </td> 
+                                            </tr> 
+                                        </table>
+                                    `);
+
+                                    i++;
+                                });
+                            }
+                        },
+                        error: function(xhr){
+                            console.log("Es ist ein Fehler aufgetreten :(");
+                        }
+                    });
+                }
+
             }
         });
 
