@@ -62,7 +62,6 @@ app.listen(app.get("port"), function(){
 
 // --------------------------------- Requests -------------------------------
 
-// return kunde with given id -> get request
 app.get("/product/name/:name", (req, res) =>{
     mysqlConnection.query("SELECT * FROM products WHERE name LIKE CONCAT(?,'%')", [req.params.name], (err, rows, fields) =>{
         if (err) throw err;
@@ -70,21 +69,10 @@ app.get("/product/name/:name", (req, res) =>{
     });
 });
 
-// return kunde with given id -> get request
 app.get("/product", (req, res) =>{
     mysqlConnection.query("SELECT * FROM products", (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
-    });
-});
-
-// update kunde -> post request
-app.post("/updateadresse", (req, res) =>{
-    mysqlConnection.query("UPDATE adresse SET nameort=?, plz=?, straße=?, hausnr=?, hausnrzusatz=?, mfg_id=?, kvz_dtag_id=? WHERE id=?", 
-    [req.body.Stuff.nameort, req.body.Stuff.plz, req.body.Stuff.straße, req.body.Stuff.hausnr, req.body.Stuff.hausnrzusatz, req.body.Stuff.mfg_id, req.body.Stuff.kvz_id, req.body.Stuff.id], (err, rows) =>{
-        if (err) throw err;
-        res.send(rows);
-        
     });
 });
 
