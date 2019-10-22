@@ -16,31 +16,35 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
 
 
-var db = false;
+var db = true;
 if(db)
 {
     // astablish connection variables of database
     var mysqlConnection = mysql.createConnection({
-        host: "127.0.0.1",
-        port: 80,
-        user: "candyshop",
-        password: "candyshop",
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "",
         database: "candyshopDB"
     });
 
     // connect to database
     mysqlConnection.connect((err) => {
         if(!err){
-            console.log("Database: connection successful!");
+            console.log("     --- Connection to Database successfull! Yeey!");
         }else {
-            console.log("Database: connection failed. Error: "+ JSON.stringify(err, undefined, 2));
+            console.log("     --- Connection to Database failed! AMK! Error:"+ JSON.stringify(err, undefined, 2));
         }
     });
 }
 
 
 // start webserver -------------------------------
-app.listen(app.get("port"), function(){                                                                                             
+app.listen(app.get("port"), function(){   
+    console.log("                                                                                   ");
+    console.log("                                                                                   ");
+    console.log("                                                                                   ");
+    console.log("                                                                                   ");                                                                                          
     console.log("     _____                       _            _____   _                            ");
     console.log("    / ____|                     | |          / ____| | |                           ");
     console.log("   | |        __ _   _ __     __| |  _   _  | (___   | |__     ___    _ __         ");
