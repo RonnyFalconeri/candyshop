@@ -7,7 +7,7 @@ var bodyparser = require("body-parser");
 var app = express();
 
 // initialisations
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 80);
 app.set("view engine", "ejs");
 app.get("/", function(req, res){
     res.render("index");
