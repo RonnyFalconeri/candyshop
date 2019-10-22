@@ -2,9 +2,10 @@
     $(document).ready(function()
     {
 
-        var available_products = [];
-        var t_name, t_picture, t_price, t_weight; 
+        var available_products = []; // array of all products with information
+        var warenkorb = []; // array of selected products 
 
+        // load all products at the beginning
         $.ajax({
             url: "/product",
             type: "GET",
@@ -12,12 +13,17 @@
                 if(data.length > 0)
                 {
                     var i = 0;
+                    var t_name, t_picture, t_price, t_weight;
+
                     data.forEach(element => {
+                        // for every product ...
+
 
                         t_name = element.name;
                         t_picture = element.imagename;
                         t_price = element.price;
                         t_weight = element.weight;
+
 
                         //create object to store in available_products
                         var candy = {};
@@ -31,6 +37,8 @@
 
                         available_products.push(candy[i]);
 
+
+                        // generate table/list of one product
                         $("#product_list").append(`
                             <table id="table_`+i+`" style="border-radius: 20px;">
                                 <tr>
@@ -67,11 +75,81 @@
         });
 
 
-        for(var x=0;x<=available_products.length;x++){
-            console.log(available_products[x]);
-        }
+        // if pressed 'enter' on searchbar
+        $("#searchbar").keydown(function (e){
+            if(e.keyCode == 13){
 
-        console.log(available_products);
+                var name = $("#searchbar").val();
+
+                $.ajax({
+                    url: "/product/name"+name,
+                    type: "GET",
+                    success: function(data){
+                        if(data.length > 0)
+                        {
+
+                            // clear the list
+                            available_products = [];
+                            $("#product_list").empty();
+
+                            var i = 0;
+                            var t_name, t_picture, t_price, t_weight;
+
+                            data.forEach(element => {
+                                // for every product ...
+
+
+                                t_name = element.name;
+                                t_picture = element.imagename;
+                                t_price = element.price;
+                                t_weight = element.weight;
+
+
+                                //create object to store in available_products
+                                var candy = {};
+
+                                candy[i] = {
+                                    table_id: "table_"+i,
+                                    name: t_name,
+                                    price: t_price,
+                                    weight: t_weight
+                                }
+
+                                available_products.push(candy[i]);
+
+
+                                // generate table/list of one product
+                                $("#product_list").append(`
+                                    <table id="table_`+i+`" style="border-radius: 20px;">
+                                        <tr>
+                                            <td rowspan="3">
+                                                <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
+                                            </td>
+                                            
+                                            <td style="width: 50%;">
+                                                <tr>
+                                                    <td style="width: 70%;"><span id="product_name" class="display-4">`+t_name+`</span></td>
+                                                    <td style="width: 30%;"><span id="product_price" class="font-weight-bolder" style="font-size: 40px;">`+t_price+` €</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
+                                                    <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                                </tr>
+                                            </td> 
+                                        </tr> 
+                                    </table>
+                                `);
+
+                                i++;
+                            });
+                        }
+                    },
+                    error: function(xhr){
+                        console.log("Es ist ein Fehler aufgetreten :(");
+                    }
+                });
+            }
+        });
 
 
 
