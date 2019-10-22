@@ -230,6 +230,23 @@
             }
         });
 
+
+        $("#playsong").play();
+        var play_song = true;
+
+        $("#controlsong").click(function(){
+            console.log("pressed");
+            if(play_song)
+            {
+                $("#playsong").pause();
+                play_song = false;
+
+            }else{
+                $("#playsong").play();
+                play_song = true;
+            }
+        });
+
     });
 
 </script>
