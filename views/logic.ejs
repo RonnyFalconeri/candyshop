@@ -82,7 +82,7 @@
                 var name = $("#searchbar").val();
 
                 $.ajax({
-                    url: "/product/name"+name,
+                    url: "/product/name/"+name,
                     type: "GET",
                     success: function(data){
                         if(data.length > 0)
