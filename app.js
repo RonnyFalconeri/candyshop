@@ -6,10 +6,12 @@ var path = require("path");
 var mysql = require("mysql");
 var bodyparser = require("body-parser");
 var app = express();
-
+var fs = require("fs");
 
 // initialisations
-app.set("port", process.env.PORT || 80);
+var portfile = fs.readFileSync("./portfile");
+var port = portfile.toString();
+app.set("port", process.env.PORT || port);
 app.set("view engine", "ejs");
 app.get("/", function(req, res){
     res.render("index");
