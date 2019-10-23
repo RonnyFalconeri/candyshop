@@ -9,9 +9,8 @@ pipeline {
 						sh 'docker stop candyshopapp || true && docker rm candyshopapp || true'
 						sh 'docker build -t candyshopapp .'
 						sh 'docker run -d --network host --name candyshopapp candyshopapp'
-					}
-					
 				}
+					
 			}
 		}
 	}
@@ -20,9 +19,8 @@ pipeline {
 			stage('build') {
 				steps {
 						sh 'echo no massteeer'
-					}
-					
 				}
+					
 			}
 		}
 	}
