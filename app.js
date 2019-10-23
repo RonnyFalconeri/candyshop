@@ -1,10 +1,12 @@
   
 // requirements
+var cors = require("cors");
 var express = require("express");
 var path = require("path");
 var mysql = require("mysql");
 var bodyparser = require("body-parser");
 var app = express();
+
 
 // initialisations
 app.set("port", process.env.PORT || 80);
@@ -14,6 +16,7 @@ app.get("/", function(req, res){
 });
 app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.json());
+app.use(cors());
 
 
 var db = true;
