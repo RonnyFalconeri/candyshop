@@ -73,14 +73,14 @@ app.get("/product/name/:name", (req, res) =>{
 });
 
 app.get("/product", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM products", (err, rows, fields) =>{
+    mysqlConnection.query("SELECT * FROM products ORDER BY price", (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
 });
 
 app.get("/articles", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM products", (err, rows, fields) =>{
+    mysqlConnection.query("SELECT * FROM products ORDER BY price", (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
