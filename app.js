@@ -84,6 +84,8 @@ app.get("/product", (req, res) =>{
 app.get("/articles", (req, res) =>{
     mysqlConnection.query("SELECT * FROM products ORDER BY price DESC", (err, rows, fields) =>{
         if (err) throw err;
+        var delivered = true;
+        rows.push(delivered);
         res.send(rows);
     });
 });
