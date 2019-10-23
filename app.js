@@ -1,5 +1,6 @@
   
 // requirements
+var cors = require("cors");
 var express = require("express");
 var path = require("path");
 var mysql = require("mysql");
