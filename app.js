@@ -66,21 +66,21 @@ app.listen(app.get("port"), function(){
 // --------------------------------- Requests -------------------------------
 
 app.get("/product/name/:name", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM products WHERE name LIKE CONCAT('%',?,'%') ORDER BY price", [req.params.name], (err, rows, fields) =>{
+    mysqlConnection.query("SELECT * FROM products WHERE name LIKE CONCAT('%',?,'%') ORDER BY price DESC", [req.params.name], (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
 });
 
 app.get("/product", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM products ORDER BY price", (err, rows, fields) =>{
+    mysqlConnection.query("SELECT * FROM products ORDER BY price DESC", (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
 });
 
 app.get("/articles", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM products ORDER BY price", (err, rows, fields) =>{
+    mysqlConnection.query("SELECT * FROM products ORDER BY price DESC", (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
