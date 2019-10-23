@@ -3,11 +3,10 @@ pipeline {
 	stages {
 		stage('build') {
 			steps {
-				sh 'appname=\'candyshopapp\'$(cat portfile)'
 				sh 'echo "candyshop wird gebaut und gestartet"'
-				sh 'docker stop $appname || true && docker rm $appname || true'
-				sh 'docker build -t $appname .'
-				sh 'docker run -d --network host --name $appname $appname'
+				sh 'docker stop \'candyshopapp\'$(cat portfile) || true && docker rm \'candyshopapp\'$(cat portfile) || true'
+				sh 'docker build -t \'candyshopapp\'$(cat portfile) .'
+				sh 'docker run -d --network host --name \'candyshopapp\'$(cat portfile) \'candyshopapp\'$(cat portfile)'
 			}
 		}
 	}
