@@ -58,7 +58,7 @@
                                         </tr>
                                         <tr>
                                             <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
-                                            <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                            <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary wk_button" type="button" value="In Warenkorb"></td>
                                         </tr>
                                     </td> 
                                 </tr> 
@@ -74,8 +74,8 @@
             }
         });
 
-        $("#warenkorb_button").click(function(){
-            console.log("pressed.");
+        $(".wk_button").click(function(){
+            console.log("Button pressed: "+this.id);
         });
 
         // if pressed 'enter' on searchbar
@@ -140,7 +140,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
-                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary wk_button" type="button" value="In Warenkorb"></td>
                                                     </tr>
                                                 </td> 
                                             </tr> 
@@ -210,7 +210,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
-                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary wk_button" type="button" value="In Warenkorb"></td>
                                                     </tr>
                                                 </td> 
                                             </tr> 
