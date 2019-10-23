@@ -1,32 +1,25 @@
 <% include header %>
 
 <header>
-    <h1 id="maintitle">CandyShop</h1>
+    <table style="margin-left:auto; margin-right:auto;">
+        <tr>
+            <td><h1 id="maintitle" style="margin: 0 100px 0 100px;">CandyShop</h1></td>
+            <td><audio id="playsong" controls autoplay loop><source src="media/candyshop_song.mp3" type="audio/mpeg"></audio></td>
+        </tr>
+    </table>
     <h2 id="undertitle">The Online Shop</h2>
-    <a id="controlsong">Play Candy Shop - 50 Cent</a>
-    <audio id="playsong">
-        <source src="media/candyshop_song.mp3" type="audio/mpeg">
-    </audio>
 </header>
 
 <div class="wrapper">
-
     <nav>
         <input id="searchbar" class="form-control" type="text" placeholder="search product" style="width: 100%;">
     </nav>
 
     <main>
         <div id="product_list">
-
-
-
         </div>
     </main>
-
 </div>
-
-
-
 
 <% include logic %>
 <% include footer %>

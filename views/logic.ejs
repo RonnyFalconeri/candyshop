@@ -26,7 +26,7 @@
 
                         t_name = element.name;
                         t_picture = element.imagename;
-                        t_price = element.price;
+                        t_price = element.price.toFixed(2);
                         t_weight = element.weight;
 
 
@@ -45,7 +45,7 @@
 
                         // generate table/list of one product
                         $("#product_list").append(`
-                            <table id="table_`+i+`" style="border-radius: 20px;">
+                            <table id="table_`+i+`" class="product_entry" style="border-radius: 20px;">
                                 <tr>
                                     <td rowspan="3">
                                         <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
@@ -58,7 +58,7 @@
                                         </tr>
                                         <tr>
                                             <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
-                                            <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                            <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary wk_button" type="button" value="In Warenkorb"></td>
                                         </tr>
                                     </td> 
                                 </tr> 
@@ -74,8 +74,10 @@
             }
         });
 
-        $("#warenkorb_button").click(function(){
-            console.log("pressed.");
+
+
+        $(".wk_button").click(function(){
+            console.log("pressed: "+this.id);
         });
 
         // if pressed 'enter' on searchbar
@@ -108,7 +110,7 @@
 
                                     t_name = element.name;
                                     t_picture = element.imagename;
-                                    t_price = element.price;
+                                    t_price = element.price.toFixed(2);
                                     t_weight = element.weight;
 
 
@@ -127,7 +129,7 @@
 
                                     // generate table/list of one product
                                     $("#product_list").append(`
-                                        <table id="table_`+i+`" style="border-radius: 20px;">
+                                        <table id="table_`+i+`" class="product_entry" style="border-radius: 20px;">
                                             <tr>
                                                 <td rowspan="3">
                                                     <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
@@ -140,7 +142,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
-                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary wk_button" type="button" value="In Warenkorb"></td>
                                                     </tr>
                                                 </td> 
                                             </tr> 
@@ -178,7 +180,7 @@
 
                                     t_name = element.name;
                                     t_picture = element.imagename;
-                                    t_price = element.price;
+                                    t_price = element.price.toFixed(2);
                                     t_weight = element.weight;
 
 
@@ -197,7 +199,7 @@
 
                                     // generate table/list of one product
                                     $("#product_list").append(`
-                                        <table id="table_`+i+`" style="border-radius: 20px;">
+                                        <table id="table_`+i+`" class="product_entry" style="border-radius: 20px;">
                                             <tr>
                                                 <td rowspan="3">
                                                     <span id="product_pic" style="margin-left: 20px;"><img src="images/`+t_picture+`" style="border: 1px solid black;" width="230" height="140"></span>
@@ -210,7 +212,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="width: 50%;"><span id="product_weight" class="font-italic" style="font-size: 20px;">`+t_weight+` g</span></td>
-                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary" type="button" value="In Warenkorb"></td>
+                                                        <td style="width: 50%;"><input id="warenkorb_button_`+i+`" class="btn btn-primary wk_button" type="button" value="In Warenkorb"></td>
                                                     </tr>
                                                 </td> 
                                             </tr> 
@@ -231,22 +233,5 @@
         });
 
 
-        $("#playsong").play();
-        var play_song = true;
-
-        $("#controlsong").click(function(){
-            console.log("pressed");
-            if(play_song)
-            {
-                $("#playsong").pause();
-                play_song = false;
-
-            }else{
-                $("#playsong").play();
-                play_song = true;
-            }
-        });
-
     });
-
 </script>
