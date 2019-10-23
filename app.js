@@ -56,7 +56,7 @@ app.listen(app.get("port"), function(){
 
 // return kunde with given id -> get request
 app.get("/product/name/:name", (req, res) =>{
-    mysqlConnection.query("SELECT * FROM products WHERE name LIKE CONCAT(?,'%')", [req.params.name], (err, rows, fields) =>{
+    mysqlConnection.query("SELECT * FROM products WHERE name LIKE CONCAT('%',?,'%') ORDER BY price", [req.params.name], (err, rows, fields) =>{
         if (err) throw err;
         res.send(rows);
     });
