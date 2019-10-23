@@ -5,7 +5,6 @@ COPY package.json /opt/app
 RUN npm install
 COPY . /opt/app
 
-EXPOSE 3000
 CMD node app.js
 
 
